@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".fragmentRegistrarse">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/ETUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Usuario"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/ETNombre"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:hint="Nombre"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/ETApellido"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:hint="Apellido"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/ETContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:hint="Contraseña"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
+
+
+    <EditText
+        android:id="@+id/ETCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:hint="Correo Electronico"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/BTRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Registrar"
+            android:textColorHint="@color/colorWhite"
+            android:theme="@style/BotonColores"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
