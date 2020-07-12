@@ -86,9 +86,10 @@ public class fragmentLogin extends Fragment {
         if (u.equals("")&&p.equals("")){
             Toast.makeText(getContext().getApplicationContext(),"ERROR CAMPOS VACIOS",Toast.LENGTH_SHORT).show();
         }else if (dao.login(u,p)==1){
+            //USUARIO LOGUEADO
             Usuario ux=dao.getUsuario(u,p);
             Toast.makeText(getContext().getApplicationContext(),"DATOS CORRECTOS",Toast.LENGTH_SHORT).show();
-            Intent i2=new Intent(getActivity(),inicio.class);
+            Intent i2=new Intent(getActivity(),miInicio.class);
             i2.putExtra("ID",ux.getId());
             startActivity(i2);
             getActivity().finish();

@@ -16,13 +16,15 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     db.execSQL(utilidades.CREAR_TABLA_USUARIO);
+    db.execSQL(utilidades.CREAR_TABLA_ADICCION);
     //USUARIO ADMIN
         db.execSQL("INSERT INTO usuarios(id,rol,nombreUsuario,nombre,apellido,password,mail)VALUES(NULL,1,'admin','alex','aguada','1234','alex@gmail.com')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    db.execSQL("DROP TABLE IF EXISTS usuarios");
+    db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_USUARIO);
+    db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_ADICCION);
     onCreate(db);
     }
 }

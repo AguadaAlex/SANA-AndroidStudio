@@ -50,6 +50,7 @@ public class daoUsuario {
         }
         return x;
     }
+    //OBTENGO LISTA CON TODOS LOS USUARIOS DE LA BD
     public ArrayList<Usuario> selectUsuario(){
         ArrayList<Usuario>lista=new ArrayList<Usuario>();
         lista.clear();
@@ -81,6 +82,7 @@ public class daoUsuario {
         }
         return a;
     }
+    //RETORNAR USUARIO DE LA DB
     public Usuario getUsuario(String u,String p){
         Lista=selectUsuario();
         for (Usuario us:Lista){
