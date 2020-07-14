@@ -21,4 +21,6 @@
     <string name="home_second">Home Second</string>
     <string name="title_adiccion_list">adicciones</string>
     <string name="title_adiccion_detail">Adiccion Detail</string>
+    <string name="title_centro_list">centros</string>
+    <string name="title_centro_detail">centro Detail</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.sanapruebados;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -54,7 +55,7 @@ public class miInicio extends AppCompatActivity {
             // Passing each menu ID as a set of Ids because each
             // menu should be considered as top level destinations.
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.altaAdiccionesFragment,R.id.altaCentrosFragment,R.id.altaEstablecimientoFragment)
+                    R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.altaAdiccionesFragment,R.id.altaCentrosFragment,R.id.altaEstablecimientoFragment  )
                     .setDrawerLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -77,6 +78,8 @@ public class miInicio extends AppCompatActivity {
         if (id == R.id.item1) {
             Toast.makeText(this, "idiomas", Toast.LENGTH_SHORT).show();
         } else if(id==R.id.item2){
+            fragmentLogin fragmentito=new fragmentLogin();
+            fragmentito.cambiarEstadoButton(this,false);
             Intent i2 = new Intent(miInicio.this, MainActivity.class);
             startActivity(i2);
             finish();
