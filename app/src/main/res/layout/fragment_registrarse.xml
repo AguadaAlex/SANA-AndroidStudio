@@ -17,47 +17,78 @@
         android:textStyle="bold"
         android:textSize="26sp"
         android:layout_gravity="center"/>
-
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/tilUsuario"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <EditText
         android:id="@+id/ETUsuario"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:hint="Usuario"
+        android:hint="@string/hintUsuario"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/tilNombre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <EditText
         android:id="@+id/ETNombre"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:hint="Nombre"
+        android:hint="@string/hintNombre"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/tilApellido"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <EditText
         android:id="@+id/ETApellido"
         android:layout_width="match_parent"
         android:layout_height="61dp"
-        android:hint="Apellido"
+        android:hint="@string/hintApellido"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/tilContraseña"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <EditText
         android:id="@+id/ETContraseña"
         android:layout_width="match_parent"
         android:layout_height="62dp"
-        android:hint="Contraseña"
+        android:hint="@string/hintContraseña"
         android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
+        android:textColorHint="@color/colorWhite"
+        android:inputType="textPassword"/>
+
+</android.support.design.widget.TextInputLayout>
 
 
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/tilCorreo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <EditText
         android:id="@+id/ETCorreo"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:hint="Correo Electronico"
+        android:hint="@string/hintCorreo"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
+
+</android.support.design.widget.TextInputLayout>
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

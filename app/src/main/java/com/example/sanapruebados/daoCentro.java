@@ -6,14 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.sanapruebados.Utilidades.utilidades;
-import com.example.sanapruebados.entidades.Adiccion;
 import com.example.sanapruebados.entidades.Centro;
 
 import java.util.ArrayList;
 
 public class daoCentro {
     Context c;
-    Adiccion u;
+    Centro u;
     ArrayList<Centro> Lista;
     SQLiteDatabase db;
 
@@ -21,7 +20,7 @@ public class daoCentro {
         this.c = c;
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(c,"bd_centros",null,1);
         db=conn.getWritableDatabase();
-        u=new Adiccion();
+        u=new Centro();
     }
     public Boolean insertCentro(Centro u){
 
@@ -30,15 +29,12 @@ public class daoCentro {
         values.put(utilidades.CAMPO_DESCRIPCION_CENTRO,u.getDescripcion());
         values.put(utilidades.CAMPO_IMAGEN_CENTRO,u.getImage());
         values.put(utilidades.CAMPO_DIRECCION_CENTRO,u.getDireccion());
-        values.put(utilidades.CAMPO_LATITUD_CENTRO,u.getLatitud());
-        values.put(utilidades.CAMPO_LONGITUD_CENTRO,u.getLongitud());
-
         return (db.insert(utilidades.TABLA_CENTRO,null,values)>0);
 
 
     }
     //OBTENGO LISTA CON TODOS LOS CENTROS DE LA BD
-    public ArrayList<Centro> listaAdiccionesDB(){
+    public ArrayList<Centro> listaCentrosDB(){
         ArrayList<Centro>lista=new ArrayList<Centro>();
         lista.clear();
         Cursor cr=db.rawQuery("select * from centros",null);
@@ -50,8 +46,7 @@ public class daoCentro {
                 u.setDescripcion(cr.getString(2));
                 u.setImage(cr.getBlob(3));
                 u.setDireccion(cr.getString(4));
-                u.setLatitud(cr.getString(5));
-                u.setLongitud(cr.getString(6));
+
                 lista.add(u);
             }while (cr.moveToNext());
         }

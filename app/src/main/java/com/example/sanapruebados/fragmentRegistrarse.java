@@ -3,6 +3,7 @@ package com.example.sanapruebados;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class fragmentRegistrarse extends Fragment {
     private EditText apellido;
     private EditText correo;
     private Button registro;
+    private TextInputLayout tusuario,tnombre,tapellido,tcontraseña,tcorreo;
     daoUsuario dao;
 
     public fragmentRegistrarse() {
@@ -81,12 +83,20 @@ public class fragmentRegistrarse extends Fragment {
         apellido=(EditText)vista.findViewById(R.id.ETApellido);
         correo=(EditText)vista.findViewById(R.id.ETCorreo);
         registro=(Button)vista.findViewById(R.id.BTRegistro);
+        tusuario=(TextInputLayout) vista.findViewById(R.id.tilUsuario);
+        tcontraseña=(TextInputLayout)vista.findViewById(R.id.tilContraseña);
+        tnombre=(TextInputLayout)vista.findViewById(R.id.tilNombre);
+        tapellido=(TextInputLayout)vista.findViewById(R.id.tilApellido);
+        tcorreo=(TextInputLayout)vista.findViewById(R.id.tilCorreo);
+
         rol=0;
         dao=new daoUsuario(getActivity().getApplicationContext());
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                regUsuario();
+                // VALIDAR CAMPOS DEL REGISTRO
+                validarCampos();
+
 
             }
         }
@@ -94,6 +104,57 @@ public class fragmentRegistrarse extends Fragment {
         );
         // Inflate the layout for this fragment
         return vista;
+    }
+    private void validarCampos(){
+        if (!ValidarEditText(user,tusuario,R.string.ErrorUsuario)){
+            return;
+        }
+            if (!ValidarEditText(nombre,tnombre,R.string.ErrorNombre)){
+                return;
+            }
+            if (!ValidarEditText(apellido,tapellido,R.string.ErrorApellido)){
+                return;
+            }
+            if (!ValidarEditText(pass,tcontraseña,R.string.ErrorContraseña)){
+            return;
+        }
+        if (!ValidarEditText(correo,tcorreo,R.string.ErrorCorreo)){
+            return;
+        }
+        validarCorreo();
+
+
+    }
+    private void validarCorreo(){
+        final String compruebaemail = correo.getEditableText().toString().trim();
+
+        final String regex = "(?:[^<>()\\[\\].,;:\\s@\"]+(?:\\.[^<>()\\[\\].,;:\\s@\"]+)*|\"[^\\n\"]+\")@(?:[^<>()\\[\\].,;:\\s@\"]+\\.)+[^<>()\\[\\]\\.,;:\\s@\"]{2,63}";
+
+        if (!compruebaemail.matches(regex))
+        {
+            //SIMULO TEXTO VACIO PARA TIRAR ERROR
+            correo.setText("");
+            if (!ValidarEditText(correo,tcorreo,R.string.ErrorCorreo)){
+                return;
+            }
+        }else {
+            //UNA VEZ QUE PASO TODAS LAS VALIDACIONES REGISTRO
+            regUsuario();
+            user.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            pass.setText("");
+            correo.setText("");
+        }
+    }
+    private boolean ValidarEditText(EditText editText,TextInputLayout textInputLayout,int errorString){
+        if (editText.getText().toString().trim().isEmpty()){
+            textInputLayout.setError(getString(errorString));
+            return false;
+        }else {
+            textInputLayout.setErrorEnabled(false);
+        }
+        return true;
     }
     private  void  regUsuario(){
         Usuario u=new Usuario();

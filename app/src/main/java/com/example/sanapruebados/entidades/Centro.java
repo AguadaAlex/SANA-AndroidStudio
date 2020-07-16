@@ -1,22 +1,22 @@
 package com.example.sanapruebados.entidades;
 
-public class Centro {
+import java.io.Serializable;
+
+public class Centro implements Serializable {
     private Integer id;
     private String nombre;
     private String descripcion;
     private byte[] image;
     private String direccion;
-    private String latitud;
-    private String longitud;
+
     public  Centro(){}
-    public Centro(Integer id, String nombre, String descripcion, byte[] image, String direccion, String latitud, String longitud) {
+    public Centro(Integer id, String nombre, String descripcion, byte[] image, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.image = image;
         this.direccion = direccion;
-        this.latitud = latitud;
-        this.longitud = longitud;
+
     }
 
     public Integer getId() {
@@ -59,21 +59,6 @@ public class Centro {
         this.direccion = direccion;
     }
 
-    public String getLatitud() {
-        return latitud;
-    }
-
-    public void setLatitud(String latitud) {
-        this.latitud = latitud;
-    }
-
-    public String getLongitud() {
-        return longitud;
-    }
-
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
-    }
 
 
 }

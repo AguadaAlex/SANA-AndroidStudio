@@ -23,4 +23,21 @@
     <string name="title_adiccion_detail">Adiccion Detail</string>
     <string name="title_centro_list">centros</string>
     <string name="title_centro_detail">centro Detail</string>
+    <string name="title_establecimiento_list">Establecimientos</string>
+    <string name="title_establecimiento_detail">Establecimiento Detail</string>
+
+   <!-- hint formulario-->
+    <string name="hintUsuario">Usuario</string>
+    <string name="hintNombre">Nombre</string>
+    <string name="hintApellido">Apellido</string>
+    <string name="hintContraseña">Contraseña</string>
+    <string name="hintCorreo">Correo</string>
+    <!-- hint formulario Errores-->
+    <string name="ErrorUsuario">Ingrese Usuario </string>
+    <string name="ErrorNombre">Ingrese Nombre</string>
+    <string name="ErrorApellido">Ingrese Apellido</string>
+    <string name="ErrorContraseña">Ingrese Contraseña</string>
+    <string name="ErrorCorreo">Ingrese Correo</string>
+
+
 </resources>

@@ -55,9 +55,11 @@ public class centroDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
+            Bundle llega=getIntent().getExtras();
             Bundle arguments = new Bundle();
-            arguments.putString(centroDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(centroDetailFragment.ARG_ITEM_ID));
+            /*arguments.putString(centroDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(centroDetailFragment.ARG_ITEM_ID));*/
+            arguments.putSerializable("objeto",llega.getSerializable("objeto"));
             centroDetailFragment fragment = new centroDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

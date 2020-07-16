@@ -2,6 +2,8 @@ package com.example.sanapruebados.MDetalleAdiccion;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +14,18 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sanapruebados.R;
 
 import com.example.sanapruebados.MDetalleAdiccion.dummy.DummyContent;
+import com.example.sanapruebados.daoAdiccion;
+import com.example.sanapruebados.daoCentro;
+import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.entidades.Centro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,7 +43,8 @@ public class centroListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
-
+    private ArrayList<Centro>listaCentros;
+    private daoCentro daoC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,26 +73,28 @@ public class centroListActivity extends AppCompatActivity {
 
         View recyclerView = findViewById(R.id.centro_list);
         assert recyclerView != null;
+        daoC=new daoCentro(this);
+        listaCentros=daoC.listaCentrosDB();
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, listaCentros, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final centroListActivity mParentActivity;
-        private final List<DummyContent.DummyItem> mValues;
+        private final ArrayList<Centro> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+                Centro item = (Centro) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString(centroDetailFragment.ARG_ITEM_ID, item.id);
+                    arguments.putSerializable("objeto",item);
                     centroDetailFragment fragment = new centroDetailFragment();
                     fragment.setArguments(arguments);
                     mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -92,7 +103,9 @@ public class centroListActivity extends AppCompatActivity {
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, centroDetailActivity.class);
-                    intent.putExtra(centroDetailFragment.ARG_ITEM_ID, item.id);
+                    Bundle bun=new Bundle();
+                    bun.putSerializable("objeto",item);
+                    intent.putExtras(bun);
 
                     context.startActivity(intent);
                 }
@@ -100,7 +113,7 @@ public class centroListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(centroListActivity parent,
-                                      List<DummyContent.DummyItem> items,
+                                      ArrayList<Centro> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
@@ -116,8 +129,10 @@ public class centroListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.nombre.setText("Centro: "+mValues.get(position).getNombre());
+            byte[] imageAdic=mValues.get(position).getImage();
+            Bitmap bitmap= BitmapFactory.decodeByteArray(imageAdic,0,imageAdic.length);
+            holder.imagen.setImageBitmap(bitmap);
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -129,13 +144,15 @@ public class centroListActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
-            final TextView mContentView;
+            final TextView nombre;
+
+            final ImageView imagen;
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                nombre = (TextView) view.findViewById(R.id.id_textCen);
+
+                imagen=(ImageView)view.findViewById(R.id.imageLisCen);
             }
         }
     }

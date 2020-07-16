@@ -50,7 +50,8 @@ public class AdiccionListActivity extends AppCompatActivity {
     private boolean mTwoPane;
 
     private ArrayList<Adiccion> listaAdicciones;
-    daoAdiccion daoA;
+    private daoAdiccion daoA;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class AdiccionListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
+        //DRAWEER
         View recyclerView = findViewById(R.id.adiccion_list);
         assert recyclerView != null;
         daoA=new daoAdiccion(this);
@@ -139,7 +141,6 @@ public class AdiccionListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.nombre.setText("Adicción: "+mValues.get(position).getNombre());
-            holder.descripcion.setText("Descripcion: "+mValues.get(position).getDescripcion());
             byte[] imageAdic=mValues.get(position).getImage();
             Bitmap bitmap= BitmapFactory.decodeByteArray(imageAdic,0,imageAdic.length);
             holder.imagen.setImageBitmap(bitmap);
@@ -157,12 +158,12 @@ public class AdiccionListActivity extends AppCompatActivity {
             /*final TextView mIdView;
             final TextView mContentView;*/
             final TextView nombre;
-            final  TextView descripcion;
+
             final ImageView imagen;
             ViewHolder(View view) {
                 super(view);
                 nombre = (TextView) view.findViewById(R.id.id_text);
-                descripcion = (TextView) view.findViewById(R.id.content);
+
                 imagen=(ImageView)view.findViewById(R.id.imageLis);
             }
         }

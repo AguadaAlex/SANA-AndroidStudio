@@ -1,10 +1,32 @@
 package com.example.sanapruebados;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.sanapruebados.MDetalleAdiccion.AdiccionListActivity;
+import com.example.sanapruebados.MDetalleAdiccion.centroListActivity;
+import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.entidades.Centro;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -21,7 +43,14 @@ public class altaCentrosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private View vista;
+    private EditText nombre;
+    private EditText descripcion;
+    private EditText direccion;
+    private Button btCambiarImagen,btAgregar,btLista;
+    private ImageView imageView;
+    daoCentro daoC;
+    final int REQUEST_CODE_GALLERY=999;
     public altaCentrosFragment() {
         // Required empty public constructor
     }
@@ -57,6 +86,96 @@ public class altaCentrosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alta_centros, container, false);
+        vista= inflater.inflate(R.layout.fragment_alta_centros, container, false);
+        daoC=new daoCentro(getActivity().getApplicationContext());
+        nombre=(EditText)vista.findViewById(R.id.ETNombreACen);
+        descripcion=(EditText)vista.findViewById(R.id.ETDescripACen);
+        direccion=(EditText)vista.findViewById(R.id.direcCen);
+        btCambiarImagen=(Button)vista.findViewById(R.id.BTCambiarImgCen);
+        btAgregar=(Button)vista.findViewById(R.id.BTAgregarAdicCen);
+        btLista=(Button)vista.findViewById(R.id.BTListaAdicCen);
+        imageView=(ImageView)vista.findViewById(R.id.imageView2Cen);
+        btCambiarImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_CODE_GALLERY);
+            }
+        });
+        btAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                regAltaCentro();
+            }
+        });
+        btLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getActivity(), centroListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        return vista;
+    }
+    public void regAltaCentro(){
+        try {
+            Centro ad=new Centro();
+            ad.setNombre(nombre.getText().toString());
+            ad.setDescripcion(descripcion.getText().toString());
+            ad.setImage(imageViewToByte(imageView));
+            ad.setDireccion(direccion.getText().toString());
+            Toast.makeText(getActivity().getApplicationContext(),"AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+            daoC.insertCentro(ad);
+            nombre.setText("");
+            descripcion.setText("");
+            imageView.setImageResource(R.mipmap.ic_launcher);
+            direccion.setText("");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+    private  byte[] imageViewToByte(ImageView image){
+        Bitmap bitmap=((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray=stream.toByteArray();
+        return byteArray;
+
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String[] permissions,int[] grantResults) {
+        if (requestCode==REQUEST_CODE_GALLERY){
+            if (grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Intent intent=new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,REQUEST_CODE_GALLERY);
+            }else {
+                Toast.makeText(getActivity().getApplicationContext(),"AGREGAANDO IMAGEN",Toast.LENGTH_SHORT).show();
+            }
+            return;
+
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==REQUEST_CODE_GALLERY && resultCode ==RESULT_OK && data !=null){
+            Uri uri=data.getData();
+            try{
+                InputStream inputStream=getActivity().getContentResolver().openInputStream(uri);
+                Bitmap bitmap= BitmapFactory.decodeStream(inputStream);
+                imageView.setImageBitmap(bitmap);
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
+

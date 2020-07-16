@@ -12,9 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MDetalleAdiccion.EstablecimientoListActivity"
+            android:label="@string/title_establecimiento_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MDetalleAdiccion.EstablecimientoDetailActivity"
+            android:label="@string/title_establecimiento_detail"
+            android:parentActivityName=".MDetalleAdiccion.EstablecimientoListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sanapruebados.MDetalleAdiccion.EstablecimientoListActivity" />
+        </activity>
+        <activity
             android:name=".MDetalleAdiccion.centroListActivity"
             android:label="@string/title_centro_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MDetalleAdiccion.centroDetailActivity"
             android:label="@string/title_centro_detail"
