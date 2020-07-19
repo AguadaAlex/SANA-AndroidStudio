@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/BTMoment" />
 
     <Button
         android:id="@+id/b_espacio"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/BTMoment"
         android:layout_width="153dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
@@ -55,10 +55,7 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <LinearLayout
-        android:layout_width="695dp"
-        android:layout_height="25dp"
-        android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/text_home"
@@ -74,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
 

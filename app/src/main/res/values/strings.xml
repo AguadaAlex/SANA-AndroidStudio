@@ -26,7 +26,7 @@
     <string name="title_establecimiento_list">Establecimientos</string>
     <string name="title_establecimiento_detail">Establecimiento Detail</string>
 
-   <!-- hint formulario-->
+    <!-- hint formulario-->
     <string name="hintUsuario">Usuario</string>
     <string name="hintNombre">Nombre</string>
     <string name="hintApellido">Apellido</string>
@@ -38,6 +38,8 @@
     <string name="ErrorApellido">Ingrese Apellido</string>
     <string name="ErrorContraseña">Ingrese Contraseña</string>
     <string name="ErrorCorreo">Ingrese Correo</string>
+    <string name="title_momento_list">Momentos</string>
+    <string name="title_momento_detail">Momento Detail</string>
 
 
 </resources>

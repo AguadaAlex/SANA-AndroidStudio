@@ -14,6 +14,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.example.sanapruebados.MDetalleAdiccion.AdiccionListActivity;
+import com.example.sanapruebados.MDetalleAdiccion.MomentoListActivity;
 import com.example.sanapruebados.MDetalleAdiccion.centroListActivity;
 import com.example.sanapruebados.R;
 import com.example.sanapruebados.daoUsuario;
@@ -26,7 +27,7 @@ public class HomeFragment extends Fragment {
     TextView nombre;
     Usuario u;
     daoUsuario dao;
-    private Button Badicciones,Bespacios;
+    private Button Badicciones,Bespacios,Bmomentos;
     int id=0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
-
+        Bmomentos=(Button)root.findViewById(R.id.BTMoment);
         Badicciones=(Button)root.findViewById(R.id.b_adiccion);
         Badicciones.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,13 @@ public class HomeFragment extends Fragment {
                         
                     }
                 });
+        Bmomentos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i4=new Intent(getActivity(), MomentoListActivity.class);
+                startActivity(i4);
+            }
+        });
             }
         });
 
