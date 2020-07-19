@@ -55,13 +55,13 @@ public class AdiccionDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle llega=getIntent().getExtras();
-            Bundle arguments = new Bundle();
+            Bundle llegaM=getIntent().getExtras();
+            Bundle argumentsM= new Bundle();
            /* arguments.putString(AdiccionDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(AdiccionDetailFragment.ARG_ITEM_ID));*/
-            arguments.putSerializable("objeto",llega.getSerializable("objeto"));
+            argumentsM.putSerializable("objeto",llegaM.getSerializable("objeto"));
             AdiccionDetailFragment fragment = new AdiccionDetailFragment();
-            fragment.setArguments(arguments);
+            fragment.setArguments(argumentsM);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.adiccion_detail_container, fragment)
                     .commit();

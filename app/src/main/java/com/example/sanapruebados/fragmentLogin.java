@@ -136,6 +136,7 @@ public class fragmentLogin extends Fragment {
             //GUARDO LOS DATOS DE LA SESION
             guardarEstadoButton(ux.getId());
             Toast.makeText(getContext().getApplicationContext(),"DATOS CORRECTOS",Toast.LENGTH_SHORT).show();
+
             Intent i2=new Intent(getActivity(),miInicio.class);
             i2.putExtra("ID",ux.getId());
             startActivity(i2);

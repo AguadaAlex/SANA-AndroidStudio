@@ -18,6 +18,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     db.execSQL(utilidades.CREAR_TABLA_USUARIO);
     db.execSQL(utilidades.CREAR_TABLA_ADICCION);
     db.execSQL(utilidades.CREAR_TABLA_CENTRO);
+    db.execSQL(utilidades.CREAR_TABLA_MOMENTO);
     //USUARIO ADMIN
         db.execSQL("INSERT INTO usuarios(id,rol,nombreUsuario,nombre,apellido,password,mail)VALUES(NULL,1,'admin','alex','aguada','1234','alex@gmail.com')");
     }
@@ -27,6 +28,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_USUARIO);
     db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_ADICCION);
     db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_CENTRO);
+    db.execSQL("DROP TABLE IF EXISTS "+utilidades.TABLA_MOMENTO);
     onCreate(db);
     }
 }

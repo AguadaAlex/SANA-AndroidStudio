@@ -49,6 +49,7 @@ public class miInicio extends AppCompatActivity {
         nombre.setText("bienvenido");*/
         Bundle b=getIntent().getExtras();
         id=b.getInt("ID");
+
         dao=new daoUsuario(this);
         u=dao.getUsuarioById(id);
         if(u.getRol()==1){

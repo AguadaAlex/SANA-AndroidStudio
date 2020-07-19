@@ -55,9 +55,11 @@ public class MomentoDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
+            Bundle llega=getIntent().getExtras();
             Bundle arguments = new Bundle();
-            arguments.putString(MomentoDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(MomentoDetailFragment.ARG_ITEM_ID));
+            /*arguments.putString(MomentoDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(MomentoDetailFragment.ARG_ITEM_ID));*/
+            arguments.putSerializable("objeto",llega.getSerializable("objeto"));
             MomentoDetailFragment fragment = new MomentoDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

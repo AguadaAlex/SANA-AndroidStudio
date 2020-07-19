@@ -2,11 +2,14 @@ package com.example.sanapruebados;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -28,12 +31,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.entidades.Momento;
+import com.example.sanapruebados.entidades.Usuario;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
 import java.security.Permission;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -46,6 +55,7 @@ import static android.Manifest.permission_group.CAMERA;
 
 public class altaMomentos extends AppCompatActivity {
     private Uri photoURI;
+    daoMomento daoM;
     private Button bseleccion,bguardar;
     private EditText estado;
     private ImageView imagen;
@@ -54,9 +64,11 @@ public class altaMomentos extends AppCompatActivity {
     private String currentPhotoPath="";
     final int PERMISSIONS_REQUEST_CAMERA=9;
     static final int REQUEST_TAKE_PHOTO = 1;
+    private  static  final  String STRING_PREFERENCES="sanapruebados.entidades.Usuario";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta_momentos);
+        daoM=new daoMomento(getApplicationContext());
         imagen=(ImageView)findViewById(R.id.IMCamara);
         estado=(EditText)findViewById(R.id.ETEstado);
         bseleccion=(Button)findViewById(R.id.BTSImagen);
@@ -131,9 +143,47 @@ public class altaMomentos extends AppCompatActivity {
 
 
         });
+       // ONCLICK GUARDAR
+        bguardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                regMomento();
+            }
+        });
 
     }
 
+    private void regMomento(){
+        try {
+            //FECHA Y USUARIO SE INSERTAN EN DAO
+            Momento ad=new Momento();
+           /* int usu=obtenerUsuarioLogueado();
+            daoUsuario daoU=new daoUsuario();
+            Usuario miUser=new Usuario();
+            miUser=daoU.getUsuarioById(usu);
+            ad.setUsuario(miUser.getNombreUsuario());*/
+            ad.setEstado(estado.getText().toString());
+            ad.setImage(imageViewToByte(imagen));
+            Toast.makeText(getApplicationContext(),"AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+            daoM.insertMomento(ad);
+            estado.setText("");
+            imagen.setImageResource(R.mipmap.ic_launcher);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private  byte[] imageViewToByte(ImageView image){
+        Bitmap bitmap=((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray=stream.toByteArray();
+        return byteArray;
+
+    }
+    public  int obtenerUsuarioLogueado(){
+        SharedPreferences preferences=getSharedPreferences(STRING_PREFERENCES, Context.MODE_PRIVATE);
+        return  preferences.getInt("id",7);
+    }
 
     private File createImageFile() throws IOException {
         // Create an image file name

@@ -15,7 +15,7 @@ public class daoUsuario {
     Usuario u;
     ArrayList<Usuario>Lista;
     SQLiteDatabase db;
-
+    public daoUsuario(){}
     public daoUsuario(Context c) {
         this.c = c;
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(c,"bd_usuarios",null,1);
