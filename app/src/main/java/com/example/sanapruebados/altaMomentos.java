@@ -157,11 +157,13 @@ public class altaMomentos extends AppCompatActivity {
         try {
             //FECHA Y USUARIO SE INSERTAN EN DAO
             Momento ad=new Momento();
-           /* int usu=obtenerUsuarioLogueado();
-            daoUsuario daoU=new daoUsuario();
+            //OBTENGO SHARED PREFERENCE DEL USUARIO GUARDADO
+           int usu=obtenerUsuarioLogueado();
+            daoUsuario daoU=new daoUsuario(this);
             Usuario miUser=new Usuario();
             miUser=daoU.getUsuarioById(usu);
-            ad.setUsuario(miUser.getNombreUsuario());*/
+            //
+            ad.setUsuario(miUser.getNombreUsuario());
             ad.setEstado(estado.getText().toString());
             ad.setImage(imageViewToByte(imagen));
             Toast.makeText(getApplicationContext(),"AGREGADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
