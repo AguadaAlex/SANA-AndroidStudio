@@ -1,4 +1,4 @@
-package com.example.sanapruebados.MDetalleAdiccion;
+package com.example.sanapruebados.MDetalle;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +14,17 @@ import android.view.MenuItem;
 import com.example.sanapruebados.R;
 
 /**
- * An activity representing a single Momento detail screen. This
+ * An activity representing a single Adiccion detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link MomentoListActivity}.
+ * in a {@link AdiccionListActivity}.
  */
-public class MomentoDetailActivity extends AppCompatActivity {
+public class AdiccionDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_momento_detail);
+        setContentView(R.layout.activity_adiccion_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,15 +55,15 @@ public class MomentoDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle llega=getIntent().getExtras();
-            Bundle arguments = new Bundle();
-            /*arguments.putString(MomentoDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(MomentoDetailFragment.ARG_ITEM_ID));*/
-            arguments.putSerializable("objeto",llega.getSerializable("objeto"));
-            MomentoDetailFragment fragment = new MomentoDetailFragment();
-            fragment.setArguments(arguments);
+            Bundle llegaM=getIntent().getExtras();
+            Bundle argumentsM= new Bundle();
+           /* arguments.putString(AdiccionDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(AdiccionDetailFragment.ARG_ITEM_ID));*/
+            argumentsM.putSerializable("objeto",llegaM.getSerializable("objeto"));
+            AdiccionDetailFragment fragment = new AdiccionDetailFragment();
+            fragment.setArguments(argumentsM);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.momento_detail_container, fragment)
+                    .add(R.id.adiccion_detail_container, fragment)
                     .commit();
         }
     }
@@ -79,7 +79,7 @@ public class MomentoDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, MomentoListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, AdiccionListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -10,7 +10,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".MDetalleAdiccion.MomentoListActivity">
+    tools:context=".MDetalle.MomentoListActivity">
 
     <!--
     This layout is a two-pane layout for the Momentos master/detail flow.
@@ -25,7 +25,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.sanapruebados.MDetalleAdiccion.MomentoListActivity"
+        tools:context="com.example.sanapruebados.MDetalle.MomentoListActivity"
         tools:listitem="@layout/momento_list_content" />
 
     <FrameLayout

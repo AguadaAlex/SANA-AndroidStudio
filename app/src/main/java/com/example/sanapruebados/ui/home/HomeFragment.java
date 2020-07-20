@@ -13,13 +13,12 @@ import android.support.v4.app.Fragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
-import com.example.sanapruebados.MDetalleAdiccion.AdiccionListActivity;
-import com.example.sanapruebados.MDetalleAdiccion.MomentoListActivity;
-import com.example.sanapruebados.MDetalleAdiccion.centroListActivity;
+import com.example.sanapruebados.MDetalle.AdiccionListActivity;
+import com.example.sanapruebados.MDetalle.MomentoListActivity;
+import com.example.sanapruebados.MDetalle.centroListActivity;
 import com.example.sanapruebados.R;
 import com.example.sanapruebados.daoUsuario;
 import com.example.sanapruebados.entidades.Usuario;
-import com.example.sanapruebados.miInicio;
 
 public class HomeFragment extends Fragment {
 

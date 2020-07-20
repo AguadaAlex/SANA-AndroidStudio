@@ -1,31 +1,24 @@
 package com.example.sanapruebados;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sanapruebados.MDetalleAdiccion.AdiccionListActivity;
-import com.example.sanapruebados.MDetalleAdiccion.centroListActivity;
-import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.MDetalle.centroListActivity;
 import com.example.sanapruebados.entidades.Centro;
 
 import java.io.ByteArrayOutputStream;
@@ -33,7 +26,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static android.app.Activity.RESULT_OK;
-import static android.support.v4.content.ContextCompat.getSystemService;
 
 
 /**

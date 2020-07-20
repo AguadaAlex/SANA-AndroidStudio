@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:textIsSelectable="true"
-    tools:context=".MDetalleAdiccion.MomentoDetailFragment">
+    tools:context=".MDetalle.MomentoDetailFragment">
 
     <TextView
         android:id="@+id/txEsDetM"

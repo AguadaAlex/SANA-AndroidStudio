@@ -1,4 +1,4 @@
-package com.example.sanapruebados.MDetalleAdiccion.dummy;
+package com.example.sanapruebados.MDetalle.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

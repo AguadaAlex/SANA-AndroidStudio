@@ -19,56 +19,56 @@
         android:theme="@style/AppTheme">
         <activity android:name=".altaMomentos"></activity>
         <activity
-            android:name=".MDetalleAdiccion.MomentoListActivity"
+            android:name=".MDetalle.MomentoListActivity"
             android:label="@string/title_momento_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MDetalleAdiccion.MomentoDetailActivity"
+            android:name=".MDetalle.MomentoDetailActivity"
             android:label="@string/title_momento_detail"
-            android:parentActivityName=".MDetalleAdiccion.MomentoListActivity"
+            android:parentActivityName=".MDetalle.MomentoListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.sanapruebados.MDetalleAdiccion.MomentoListActivity" />
+                android:value="com.example.sanapruebados.MDetalle.MomentoListActivity" />
         </activity>
         <activity
-            android:name=".MDetalleAdiccion.EstablecimientoListActivity"
+            android:name=".MDetalle.EstablecimientoListActivity"
             android:label="@string/title_establecimiento_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MDetalleAdiccion.EstablecimientoDetailActivity"
+            android:name=".MDetalle.EstablecimientoDetailActivity"
             android:label="@string/title_establecimiento_detail"
-            android:parentActivityName=".MDetalleAdiccion.EstablecimientoListActivity"
+            android:parentActivityName=".MDetalle.EstablecimientoListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.sanapruebados.MDetalleAdiccion.EstablecimientoListActivity" />
+                android:value="com.example.sanapruebados.MDetalle.EstablecimientoListActivity" />
         </activity>
         <activity
-            android:name=".MDetalleAdiccion.centroListActivity"
+            android:name=".MDetalle.centroListActivity"
             android:label="@string/title_centro_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MDetalleAdiccion.centroDetailActivity"
+            android:name=".MDetalle.centroDetailActivity"
             android:label="@string/title_centro_detail"
-            android:parentActivityName=".MDetalleAdiccion.centroListActivity"
+            android:parentActivityName=".MDetalle.centroListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.sanapruebados.MDetalleAdiccion.centroListActivity" />
+                android:value="com.example.sanapruebados.MDetalle.centroListActivity" />
         </activity>
         <activity
-            android:name=".MDetalleAdiccion.AdiccionListActivity"
+            android:name=".MDetalle.AdiccionListActivity"
             android:label="@string/title_adiccion_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MDetalleAdiccion.AdiccionDetailActivity"
+            android:name=".MDetalle.AdiccionDetailActivity"
             android:label="@string/title_adiccion_detail"
-            android:parentActivityName=".MDetalleAdiccion.AdiccionListActivity"
+            android:parentActivityName=".MDetalle.AdiccionListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.sanapruebados.MDetalleAdiccion.AdiccionListActivity" />
+                android:value="com.example.sanapruebados.MDetalle.AdiccionListActivity" />
         </activity>
         <activity
             android:name=".miInicio"

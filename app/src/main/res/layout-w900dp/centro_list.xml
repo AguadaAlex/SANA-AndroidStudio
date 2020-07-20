@@ -10,7 +10,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".MDetalleAdiccion.centroListActivity">
+    tools:context=".MDetalle.centroListActivity">
 
     <!--
     This layout is a two-pane layout for the centros master/detail flow.
@@ -25,7 +25,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.sanapruebados.MDetalleAdiccion.centroListActivity"
+        tools:context="com.example.sanapruebados.MDetalle.centroListActivity"
         tools:listitem="@layout/centro_list_content" />
 
     <FrameLayout

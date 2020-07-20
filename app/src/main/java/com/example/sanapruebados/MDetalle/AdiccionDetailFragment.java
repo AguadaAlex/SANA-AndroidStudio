@@ -1,6 +1,8 @@
-package com.example.sanapruebados.MDetalleAdiccion;
+package com.example.sanapruebados.MDetalle;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -11,17 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sanapruebados.R;
-import com.example.sanapruebados.MDetalleAdiccion.dummy.DummyContent;
+import com.example.sanapruebados.MDetalle.dummy.DummyContent;
 import com.example.sanapruebados.entidades.Adiccion;
-import com.example.sanapruebados.entidades.Momento;
 
 /**
- * A fragment representing a single Momento detail screen.
- * This fragment is either contained in a {@link MomentoListActivity}
- * in two-pane mode (on tablets) or a {@link MomentoDetailActivity}
+ * A fragment representing a single Adiccion detail screen.
+ * This fragment is either contained in a {@link AdiccionListActivity}
+ * in two-pane mode (on tablets) or a {@link AdiccionDetailActivity}
  * on handsets.
  */
-public class MomentoDetailFragment extends Fragment {
+public class AdiccionDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -32,15 +33,14 @@ public class MomentoDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
-    private Momento momento;
-    private TextView estado;
- /*   private ImageView imagen;*/
-
+    private Adiccion adiccion;
+    private TextView descripcion;
+    private ImageView imagen;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MomentoDetailFragment() {
+    public AdiccionDetailFragment() {
     }
 
     @Override
@@ -51,15 +51,14 @@ public class MomentoDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-           /* mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));*/
-            Bundle objetoMomento=getArguments();
-            momento=null;
-            momento=(Momento) objetoMomento.getSerializable("objeto");
+            Bundle objetoUsuario=getArguments();
+            adiccion=null;
+            adiccion=(Adiccion) objetoUsuario.getSerializable("objeto");
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(momento.getUsuario());
+                appBarLayout.setTitle(adiccion.getNombre());
             }
         }
     }
@@ -67,14 +66,18 @@ public class MomentoDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.momento_detail, container, false);
-
+        View rootView = inflater.inflate(R.layout.adiccion_detail, container, false);
+        /*descripcion=(TextView)rootView.findViewById(R.id.txDEsDet);
+        descripcion.setText(adiccion.getDescripcion());*/
         // Show the dummy content as text in a TextView.
-        /*if (mItem != null) {*/
-        ((TextView) rootView.findViewById(R.id.TVDirecM)).setText(momento.getDireccion());
-            ((TextView) rootView.findViewById(R.id.txEsDetM)).setText(momento.getEstado());
-     /*   }*/
-
+       /* if (mItem != null) {
+            ((TextView) rootView.findViewById(R.id.adiccion_detail)).setText(adiccion.getDescripcion());
+        }*/
+        ((TextView) rootView.findViewById(R.id.txDEsDet)).setText(adiccion.getDescripcion());
+        byte[] imageAdic=adiccion.getImage();
+        Bitmap bitmap= BitmapFactory.decodeByteArray(imageAdic,0,imageAdic.length);
+        //holder.imagen.setImageBitmap(bitmap);
+        ((ImageView) rootView.findViewById(R.id.imageView3)).setImageBitmap(bitmap);
         return rootView;
     }
 }

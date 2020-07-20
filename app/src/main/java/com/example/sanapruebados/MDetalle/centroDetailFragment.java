@@ -1,4 +1,4 @@
-package com.example.sanapruebados.MDetalleAdiccion;
+package com.example.sanapruebados.MDetalle;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -13,16 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sanapruebados.R;
-import com.example.sanapruebados.MDetalleAdiccion.dummy.DummyContent;
-import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.MDetalle.dummy.DummyContent;
+import com.example.sanapruebados.entidades.Centro;
 
 /**
- * A fragment representing a single Adiccion detail screen.
- * This fragment is either contained in a {@link AdiccionListActivity}
- * in two-pane mode (on tablets) or a {@link AdiccionDetailActivity}
+ * A fragment representing a single centro detail screen.
+ * This fragment is either contained in a {@link centroListActivity}
+ * in two-pane mode (on tablets) or a {@link centroDetailActivity}
  * on handsets.
  */
-public class AdiccionDetailFragment extends Fragment {
+public class centroDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -33,14 +33,14 @@ public class AdiccionDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
-    private Adiccion adiccion;
+    private Centro centro;
     private TextView descripcion;
     private ImageView imagen;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public AdiccionDetailFragment() {
+    public centroDetailFragment() {
     }
 
     @Override
@@ -51,14 +51,14 @@ public class AdiccionDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            Bundle objetoUsuario=getArguments();
-            adiccion=null;
-            adiccion=(Adiccion) objetoUsuario.getSerializable("objeto");
+            Bundle objetoCentro=getArguments();
+            centro=null;
+            centro=(Centro) objetoCentro.getSerializable("objeto");
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(adiccion.getNombre());
+                appBarLayout.setTitle(centro.getNombre());
             }
         }
     }
@@ -66,18 +66,17 @@ public class AdiccionDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.adiccion_detail, container, false);
-        /*descripcion=(TextView)rootView.findViewById(R.id.txDEsDet);
-        descripcion.setText(adiccion.getDescripcion());*/
+        View rootView = inflater.inflate(R.layout.centro_detail, container, false);
+
         // Show the dummy content as text in a TextView.
        /* if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.adiccion_detail)).setText(adiccion.getDescripcion());
+            ((TextView) rootView.findViewById(R.id.centro_detail)).setText(mItem.details);
         }*/
-        ((TextView) rootView.findViewById(R.id.txDEsDet)).setText(adiccion.getDescripcion());
-        byte[] imageAdic=adiccion.getImage();
+        ((TextView) rootView.findViewById(R.id.txDEsDetCen)).setText(centro.getDescripcion());
+        byte[] imageAdic=centro.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(imageAdic,0,imageAdic.length);
         //holder.imagen.setImageBitmap(bitmap);
-        ((ImageView) rootView.findViewById(R.id.imageView3)).setImageBitmap(bitmap);
+        ((ImageView) rootView.findViewById(R.id.imageView3Cen)).setImageBitmap(bitmap);
         return rootView;
     }
 }

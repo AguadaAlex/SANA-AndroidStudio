@@ -1,25 +1,69 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorVerdeP</item>
+        <item name="colorPrimaryDark">@color/colorVerdeD</item>
+        <item name="colorAccent">@color/colorVerdeA</item>
+        <item name="android:windowBackground">@color/colorVerdeA</item>
+        <item name="colorControlHighlight">@color/colorVerdeP</item>
+        <item name="colorButtonNormal">@color/colorVerdeD</item>
+        <item name="android:windowAnimationStyle">@style/AnimacionEntreActividades</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+    <style name="Verde" parent="AppTheme">
+        <item name="colorPrimary">@color/colorVerdeP</item>
+        <item name="colorPrimaryDark">@color/colorVerdeD</item>
+        <item name="colorAccent">@color/colorVerdeA</item>
+        <item name="android:windowBackground">@color/colorVerdeA</item>
+        <item name="colorControlHighlight">@color/colorVerdeP</item>
+        <item name="colorButtonNormal">@color/colorVerdeD</item>
+    </style>
+    <style name="Rojo" parent="AppTheme">
+        <item name="colorPrimary">@color/colorRojoP</item>
+        <item name="colorPrimaryDark">@color/colorRojoD</item>
+        <item name="colorAccent">@color/colorRojoA</item>
+        <item name="android:windowBackground">@color/colorRojoA</item>
+        <item name="colorControlHighlight">@color/colorRojoP</item>
+        <item name="colorButtonNormal">@color/colorRojoD</item>
+    </style>
+    <style name="Azul" parent="AppTheme">
+        <item name="colorPrimary">@color/colorAzulP</item>
+        <item name="colorPrimaryDark">@color/colorAzulD</item>
+        <item name="colorAccent">@color/colorAzulA</item>
+        <item name="android:windowBackground">@color/colorAzulA</item>
+        <item name="colorControlHighlight">@color/colorAzulP</item>
+        <item name="colorButtonNormal">@color/colorAzulD</item>
+    </style>
+
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="BotonColores" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">#2A3470</item>
-        <item name="colorButtonNormal">#0027FF</item>
+    <style name="Azul.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Azul.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Azul.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Verde.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Verde.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Verde.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Rojo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Rojo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Rojo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AnimacionEntreActividades">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
 
 </resources>

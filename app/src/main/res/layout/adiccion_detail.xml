@@ -10,7 +10,7 @@
     android:padding="16dp"
 
     android:textIsSelectable="true"
-    tools:context=".MDetalleAdiccion.AdiccionDetailFragment" >
+    tools:context=".MDetalle.AdiccionDetailFragment" >
 
     <TextView
         android:id="@+id/txDEsDet"

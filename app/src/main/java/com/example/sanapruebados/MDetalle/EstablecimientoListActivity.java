@@ -1,9 +1,7 @@
-package com.example.sanapruebados.MDetalleAdiccion;
+package com.example.sanapruebados.MDetalle;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,39 +16,30 @@ import android.widget.TextView;
 
 import com.example.sanapruebados.R;
 
-import com.example.sanapruebados.MDetalleAdiccion.dummy.DummyContent;
-import com.example.sanapruebados.altaMomentos;
-import com.example.sanapruebados.daoAdiccion;
-import com.example.sanapruebados.daoMomento;
-import com.example.sanapruebados.entidades.Adiccion;
-import com.example.sanapruebados.entidades.Momento;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.example.sanapruebados.MDetalle.dummy.DummyContent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An activity representing a list of Momentos. This activity
+ * An activity representing a list of Establecimientos. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link MomentoDetailActivity} representing
+ * lead to a {@link EstablecimientoDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class MomentoListActivity extends AppCompatActivity {
+public class EstablecimientoListActivity extends AppCompatActivity {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
      */
-    private ArrayList<Momento> listaMomentos;
-    private daoMomento daoM;
     private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_momento_list);
+        setContentView(R.layout.activity_establecimiento_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,14 +49,12 @@ public class MomentoListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i2=new Intent(getApplicationContext(), altaMomentos.class);
-                startActivity(i2);
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
-        if (findViewById(R.id.momento_detail_container) != null) {
+        if (findViewById(R.id.establecimiento_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -75,48 +62,45 @@ public class MomentoListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
-        View recyclerView = findViewById(R.id.momento_list);
+        View recyclerView = findViewById(R.id.establecimiento_list);
         assert recyclerView != null;
-        daoM=new daoMomento(this);
-        listaMomentos=daoM.listaMomentosDB();
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this,listaMomentos, mTwoPane));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final MomentoListActivity mParentActivity;
-        private final ArrayList<Momento> mValues;
+        private final EstablecimientoListActivity mParentActivity;
+        private final List<DummyContent.DummyItem> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Momento item = (Momento) view.getTag();
+                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putSerializable("objeto",item);
-                    MomentoDetailFragment fragment = new MomentoDetailFragment();
+                    arguments.putString(EstablecimientoDetailFragment.ARG_ITEM_ID, item.id);
+                    EstablecimientoDetailFragment fragment = new EstablecimientoDetailFragment();
                     fragment.setArguments(arguments);
                     mParentActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.momento_detail_container, fragment)
+                            .replace(R.id.establecimiento_detail_container, fragment)
                             .commit();
                 } else {
                     Context context = view.getContext();
-                    Intent intent = new Intent(context, MomentoDetailActivity.class);
-                    Bundle bun=new Bundle();
-                    bun.putSerializable("objeto",item);
-                    intent.putExtras(bun);
+                    Intent intent = new Intent(context, EstablecimientoDetailActivity.class);
+                    intent.putExtra(EstablecimientoDetailFragment.ARG_ITEM_ID, item.id);
+
                     context.startActivity(intent);
                 }
             }
         };
 
-        SimpleItemRecyclerViewAdapter(MomentoListActivity parent,
-                                      ArrayList<Momento> items,
+        SimpleItemRecyclerViewAdapter(EstablecimientoListActivity parent,
+                                      List<DummyContent.DummyItem> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
@@ -126,18 +110,14 @@ public class MomentoListActivity extends AppCompatActivity {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.momento_list_content, parent, false);
+                    .inflate(R.layout.establecimiento_list_content, parent, false);
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.usuario.setText(mValues.get(position).getUsuario());
-            holder.estado.setText(mValues.get(position).getEstado());
-            holder.hora.setText(mValues.get(position).getFecha());
-            byte[] imageAdic=mValues.get(position).getImage();
-            Bitmap bitmap= BitmapFactory.decodeByteArray(imageAdic,0,imageAdic.length);
-            holder.imagen.setImageBitmap(bitmap);
+            holder.mIdView.setText(mValues.get(position).id);
+            holder.mContentView.setText(mValues.get(position).content);
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -149,16 +129,13 @@ public class MomentoListActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView usuario;
-            final TextView estado;
-            final TextView hora;
-            final CircularImageView imagen;
+            final TextView mIdView;
+            final TextView mContentView;
+
             ViewHolder(View view) {
                 super(view);
-                usuario = (TextView) view.findViewById(R.id.ETUsuM);
-                estado = (TextView) view.findViewById(R.id.ETEstadoM);
-                hora = (TextView) view.findViewById(R.id.ETHoraM);
-                imagen=(CircularImageView) view.findViewById(R.id.ImageCirM);
+                mIdView = (TextView) view.findViewById(R.id.id_text);
+                mContentView = (TextView) view.findViewById(R.id.content);
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.sanapruebados.MDetalleAdiccion;
+package com.example.sanapruebados.MDetalle;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +14,17 @@ import android.view.MenuItem;
 import com.example.sanapruebados.R;
 
 /**
- * An activity representing a single Establecimiento detail screen. This
+ * An activity representing a single centro detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link EstablecimientoListActivity}.
+ * in a {@link centroListActivity}.
  */
-public class EstablecimientoDetailActivity extends AppCompatActivity {
+public class centroDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_establecimiento_detail);
+        setContentView(R.layout.activity_centro_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,13 +55,15 @@ public class EstablecimientoDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
+            Bundle llega=getIntent().getExtras();
             Bundle arguments = new Bundle();
-            arguments.putString(EstablecimientoDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(EstablecimientoDetailFragment.ARG_ITEM_ID));
-            EstablecimientoDetailFragment fragment = new EstablecimientoDetailFragment();
+            /*arguments.putString(centroDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(centroDetailFragment.ARG_ITEM_ID));*/
+            arguments.putSerializable("objeto",llega.getSerializable("objeto"));
+            centroDetailFragment fragment = new centroDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.establecimiento_detail_container, fragment)
+                    .add(R.id.centro_detail_container, fragment)
                     .commit();
         }
     }
@@ -77,7 +79,7 @@ public class EstablecimientoDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, EstablecimientoListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, centroListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
