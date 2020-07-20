@@ -71,6 +71,7 @@ public class MomentoDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         /*if (mItem != null) {*/
+        ((TextView) rootView.findViewById(R.id.TVDirecM)).setText(momento.getDireccion());
             ((TextView) rootView.findViewById(R.id.txEsDetM)).setText(momento.getEstado());
      /*   }*/
 

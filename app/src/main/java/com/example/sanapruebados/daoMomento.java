@@ -37,6 +37,9 @@ public class daoMomento {
         ContentValues values= new ContentValues();
         values.put(utilidades.CAMPO_USUARIO_MOMENTO,u.getUsuario());
         values.put(utilidades.CAMPO_ESTADO_MOMENTO,u.getEstado());
+        values.put(utilidades.CAMPO_DIRECCION_MOMENTO,u.getDireccion());
+        values.put(utilidades.CAMPO_LATITUD_MOMENTO,u.getLatitud());
+        values.put(utilidades.CAMPO_LONGITUD_MOMENTO,u.getLongitud());
         values.put(utilidades.CAMPO_IMAGEN_MOMENTO,u.getImage());
         values.put(utilidades.CAMPO_FECHA_MOMENTO,fechita);
 
@@ -56,8 +59,11 @@ public class daoMomento {
                 u.setId(cr.getInt(0));
                 u.setUsuario(cr.getString(1));
                 u.setEstado(cr.getString(2));
-                u.setImage(cr.getBlob(3));
-                u.setFecha(cr.getString(4));
+                u.setDireccion(cr.getString(3));
+                u.setLatitud(cr.getString(4));
+                u.setLongitud(cr.getString(5));
+                u.setImage(cr.getBlob(6));
+                u.setFecha(cr.getString(7));
                 lista.add(u);
             }while (cr.moveToNext());
         }

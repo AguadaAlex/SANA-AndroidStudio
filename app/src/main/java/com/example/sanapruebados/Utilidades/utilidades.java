@@ -41,10 +41,13 @@ public class utilidades {
     public static final String CAMPO_ID_MOMENTO="id";
     public static final String CAMPO_USUARIO_MOMENTO="usuario";
     public static final String CAMPO_ESTADO_MOMENTO="estado";
+    public static final String CAMPO_DIRECCION_MOMENTO="direccion";
+    public static final String CAMPO_LATITUD_MOMENTO="latitud";
+    public static final String CAMPO_LONGITUD_MOMENTO="longitud";
     public static final String CAMPO_IMAGEN_MOMENTO="image";
     public static final String CAMPO_FECHA_MOMENTO="fecha";
 
 
-    public  static final String CREAR_TABLA_MOMENTO="CREATE TABLE "+""+TABLA_MOMENTO+"("+CAMPO_ID_MOMENTO+""+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_USUARIO_MOMENTO+" TEXT,"+CAMPO_ESTADO_MOMENTO+" TEXT,"+CAMPO_IMAGEN_MOMENTO+" BLOG,"+CAMPO_FECHA_MOMENTO+" TEXT)";
+    public  static final String CREAR_TABLA_MOMENTO="CREATE TABLE "+""+TABLA_MOMENTO+"("+CAMPO_ID_MOMENTO+""+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_USUARIO_MOMENTO+" TEXT,"+CAMPO_ESTADO_MOMENTO+" TEXT,"+CAMPO_DIRECCION_MOMENTO+" TEXT,"+CAMPO_LATITUD_MOMENTO+" TEXT,"+CAMPO_LONGITUD_MOMENTO+" TEXT,"+CAMPO_IMAGEN_MOMENTO+" BLOG,"+CAMPO_FECHA_MOMENTO+" TEXT)";
 }
 
