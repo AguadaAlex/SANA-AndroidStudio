@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:textSize="26sp"
         android:layout_gravity="center"/>
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/tilUsuario"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -29,9 +29,9 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/tilNombre"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -43,9 +43,9 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/tilApellido"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -57,9 +57,9 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/tilContraseña"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -72,10 +72,10 @@
         android:textColorHint="@color/colorWhite"
         android:inputType="textPassword"/>
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
 
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/tilCorreo"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -87,10 +87,10 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite" />
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -107,7 +107,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

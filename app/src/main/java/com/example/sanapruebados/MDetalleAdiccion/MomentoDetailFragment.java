@@ -1,18 +1,22 @@
 package com.example.sanapruebados.MDetalleAdiccion;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
+
+import com.example.sanapruebados.MainActivity;
+import com.example.sanapruebados.mapaMomento;
+import com.example.sanapruebados.miInicio;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sanapruebados.R;
 import com.example.sanapruebados.MDetalleAdiccion.dummy.DummyContent;
-import com.example.sanapruebados.entidades.Adiccion;
 import com.example.sanapruebados.entidades.Momento;
 
 /**
@@ -34,6 +38,7 @@ public class MomentoDetailFragment extends Fragment {
     private DummyContent.DummyItem mItem;
     private Momento momento;
     private TextView estado;
+    private Button btMapa;
  /*   private ImageView imagen;*/
 
     /**
@@ -74,6 +79,14 @@ public class MomentoDetailFragment extends Fragment {
         ((TextView) rootView.findViewById(R.id.TVDirecM)).setText(momento.getDireccion());
             ((TextView) rootView.findViewById(R.id.txEsDetM)).setText(momento.getEstado());
      /*   }*/
+        btMapa=(Button)rootView.findViewById(R.id.BTDetailM);
+        btMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i2 = new Intent(getActivity(), mapaMomento.class);
+                startActivity(i2);
+            }
+        });
 
         return rootView;
     }
