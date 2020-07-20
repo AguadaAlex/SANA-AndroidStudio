@@ -36,7 +36,7 @@
                 android:elegantTextHeight="false"
                 android:text="adicciones"
                 android:textAlignment="gravity"
-                android:textColor="#09730D"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="24sp" />
 
             <Button
@@ -48,7 +48,7 @@
                 android:drawableTop="@drawable/ic_espacios"
                 android:elegantTextHeight="false"
                 android:text="espacios"
-                android:textColor="#09730D"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -58,10 +58,12 @@
         android:id="@+id/BTMoment"
         android:layout_width="153dp"
         android:layout_height="53dp"
+        android:layout_margin="23dp"
         android:background="@drawable/ovalo"
         android:text="Momentos"
         app:layout_constraintEnd_toEndOf="@+id/text_home"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView

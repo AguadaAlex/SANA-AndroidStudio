@@ -28,7 +28,7 @@
         </menu>
     </item>
     <item
-        android:id="@+id/item2"
+        android:id="@+id/salir"
         android:orderInCategory="101"
         android:title="@string/action_settings2" />
 </menu>

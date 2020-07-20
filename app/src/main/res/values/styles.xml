@@ -13,14 +13,13 @@
         <item name="android:windowAnimationStyle">@style/AnimacionEntreActividades</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorRana1">#C68D3F</item>
-        <item name="colorRana2">#A57832</item>
+        <item name="colorRana1">#8dc63f</item>
+        <item name="colorRana2">#78a532</item>
         <item name="colorRana3">#FA8537</item>
 
     </style>
     <style name="Verde" parent="AppTheme">
-        <item name="colorRana1">#8dc63f</item>
-        <item name="colorRana2">#78a532</item>
+
     </style>
     <style name="Rojo" parent="AppTheme">
         <item name="colorPrimary">@color/colorRojoP</item>
@@ -31,6 +30,7 @@
         <item name="colorButtonNormal">@color/colorRojoD</item>
         <item name="colorRana1">#C68D3F</item>
         <item name="colorRana2">#A57832</item>
+        <item name="colorRana3">#afd32c</item>
     </style>
     <style name="Azul" parent="AppTheme">
         <item name="colorPrimary">@color/colorAzulP</item>
@@ -39,6 +39,9 @@
         <item name="android:windowBackground">@color/colorAzulA</item>
         <item name="colorControlHighlight">@color/colorAzulP</item>
         <item name="colorButtonNormal">@color/colorAzulD</item>
+        <item name="colorRana1">#3F80C6</item>
+        <item name="colorRana2">#1F6FA3</item>
+        <item name="colorRana3">#37DDFA</item>
 
     </style>
 
