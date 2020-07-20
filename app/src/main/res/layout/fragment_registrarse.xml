@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     tools:context=".fragmentRegistrarse">
 
     <!-- TODO: Update blank fragment layout -->
@@ -101,7 +100,6 @@
             android:layout_gravity="center"
             android:hint="Registrar"
             android:textColorHint="@color/colorWhite"
-            android:theme="@style/BotonColores"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

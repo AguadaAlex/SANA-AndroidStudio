@@ -1,8 +1,13 @@
 package com.example.sanapruebados;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +28,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sanapruebados.Utilidades.CambiarColor;
+import com.example.sanapruebados.Utilidades.Reproductor;
 import com.example.sanapruebados.entidades.Usuario;
+
+import java.util.Locale;
 
 public class miInicio extends AppCompatActivity {
     int id=0;
@@ -33,6 +42,7 @@ public class miInicio extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_mi_inicio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor("#00bd56"));
@@ -75,17 +85,45 @@ public class miInicio extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.mi_inicio, menu);
         return true;
     }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.item1) {
-            Toast.makeText(this, "idiomas", Toast.LENGTH_SHORT).show();
-        } else if(id==R.id.item2){
-            fragmentLogin fragmentito=new fragmentLogin();
-            fragmentito.cambiarEstadoButton(this,false);
-            Intent i2 = new Intent(miInicio.this, MainActivity.class);
-            startActivity(i2);
-            finish();
+        Locale locale;
+        String tema="ACTUAL";
+        SharedPreferences mprefs;
+        mprefs=getSharedPreferences("TEMA_PREFERENCES", Context.MODE_PRIVATE);
+        Reproductor.Reproducir(this);
+        switch(id) {
+            case (R.id.ingles):
+                Toast.makeText(this, "Cambiado a ingles", Toast.LENGTH_SHORT).show();
+                locale = new Locale("chr-rUS");
+                Configuration config = new Configuration(getResources().getConfiguration());
+                Locale.setDefault(locale);
+                config.setLocale(locale);
+                getBaseContext().getResources().updateConfiguration(config,
+                        getBaseContext().getResources().getDisplayMetrics());
+                break;
+            case (R.id.item2):
+                Intent i2 = new Intent(miInicio.this, MainActivity.class);
+                startActivity(i2);
+                finish();
+                break;
+            case (R.id.azul):
+                Toast.makeText(this, "Cambiado a Azul", Toast.LENGTH_SHORT).show();
+                mprefs.edit().putString(tema,"Azul").apply();
+                recreate();
+                break;
+            case (R.id.verde):
+                Toast.makeText(this, "Cambiado a Verde", Toast.LENGTH_SHORT).show();
+                mprefs.edit().putString(tema,"Verde").apply();
+                recreate();
+                break;
+            case (R.id.rojo):
+                Toast.makeText(this, "Cambiado a Rojo", Toast.LENGTH_SHORT).show();
+                mprefs.edit().putString(tema,"Rojo").apply();
+                recreate();
+                break;
         }
     return super.onOptionsItemSelected(item);
     }

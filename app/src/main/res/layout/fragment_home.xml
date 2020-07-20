@@ -7,70 +7,70 @@
     tools:context=".ui.home.HomeFragment">
 
 
-    <Button
-        android:id="@+id/b_adiccion"
-        style="?android:attr/borderlessButtonStyle"
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#15F1CC"
-        android:drawableBottom="@drawable/ic_adiccion"
-        android:elegantTextHeight="false"
-        android:text="adicciones"
-        android:textAlignment="gravity"
-        android:textColor="#09730D"
-        android:textSize="24sp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTMoment" />
+        app:layout_constraintTop_toBottomOf="@+id/BTMoment">
 
-    <Button
-        android:id="@+id/b_espacio"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTop="@drawable/ic_espacios"
-        android:elegantTextHeight="false"
-        android:text="espacios"
-        android:textColor="#09730D"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_adiccion"
-        app:layout_constraintVertical_bias="0.02" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <Button
+                android:id="@+id/b_adiccion"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#15F1CC"
+                android:drawableBottom="@drawable/ic_adiccion"
+                android:elegantTextHeight="false"
+                android:text="adicciones"
+                android:textAlignment="gravity"
+                android:textColor="#09730D"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/b_espacio"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:drawableTop="@drawable/ic_espacios"
+                android:elegantTextHeight="false"
+                android:text="espacios"
+                android:textColor="#09730D"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/BTMoment"
         android:layout_width="153dp"
         android:layout_height="53dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/ovalo"
         android:text="Momentos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/text_home"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-        <TextView
-            android:id="@+id/text_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@android:color/transparent"
-            android:textAlignment="center"
-            android:textSize="0sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:textAlignment="center"
+        android:textSize="0sp" />
 
 
 </android.support.constraint.ConstraintLayout>

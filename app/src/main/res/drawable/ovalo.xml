@@ -13,8 +13,8 @@
         >
 
     </corners>
-    <solid android:color="@color/colorGreen"/>
+    <solid android:color="?attr/colorPrimary"/>
 <stroke
     android:width="10px"
-    android:color="@color/colorGreen"></stroke>
+    android:color="?attr/colorPrimaryDark"></stroke>
 </shape>

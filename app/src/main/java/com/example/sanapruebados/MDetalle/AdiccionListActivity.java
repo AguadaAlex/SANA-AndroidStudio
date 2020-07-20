@@ -21,6 +21,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.sanapruebados.R;
 
+import com.example.sanapruebados.Utilidades.CambiarColor;
 import com.example.sanapruebados.daoAdiccion;
 import com.example.sanapruebados.entidades.Adiccion;
 
@@ -49,6 +50,7 @@ public class AdiccionListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_adiccion_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

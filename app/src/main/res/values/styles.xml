@@ -1,5 +1,7 @@
 <resources>
-
+    <attr name="colorRana1" format="color"/>
+    <attr name="colorRana2" format="color"/>
+    <attr name="colorRana3" format="color"/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorVerdeP</item>
         <item name="colorPrimaryDark">@color/colorVerdeD</item>
@@ -7,17 +9,18 @@
         <item name="android:windowBackground">@color/colorVerdeA</item>
         <item name="colorControlHighlight">@color/colorVerdeP</item>
         <item name="colorButtonNormal">@color/colorVerdeD</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:windowAnimationStyle">@style/AnimacionEntreActividades</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorRana1">#C68D3F</item>
+        <item name="colorRana2">#A57832</item>
+        <item name="colorRana3">#FA8537</item>
+
     </style>
     <style name="Verde" parent="AppTheme">
-        <item name="colorPrimary">@color/colorVerdeP</item>
-        <item name="colorPrimaryDark">@color/colorVerdeD</item>
-        <item name="colorAccent">@color/colorVerdeA</item>
-        <item name="android:windowBackground">@color/colorVerdeA</item>
-        <item name="colorControlHighlight">@color/colorVerdeP</item>
-        <item name="colorButtonNormal">@color/colorVerdeD</item>
+        <item name="colorRana1">#8dc63f</item>
+        <item name="colorRana2">#78a532</item>
     </style>
     <style name="Rojo" parent="AppTheme">
         <item name="colorPrimary">@color/colorRojoP</item>
@@ -26,6 +29,8 @@
         <item name="android:windowBackground">@color/colorRojoA</item>
         <item name="colorControlHighlight">@color/colorRojoP</item>
         <item name="colorButtonNormal">@color/colorRojoD</item>
+        <item name="colorRana1">#C68D3F</item>
+        <item name="colorRana2">#A57832</item>
     </style>
     <style name="Azul" parent="AppTheme">
         <item name="colorPrimary">@color/colorAzulP</item>
@@ -34,6 +39,7 @@
         <item name="android:windowBackground">@color/colorAzulA</item>
         <item name="colorControlHighlight">@color/colorAzulP</item>
         <item name="colorButtonNormal">@color/colorAzulD</item>
+
     </style>
 
 

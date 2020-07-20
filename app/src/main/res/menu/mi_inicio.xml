@@ -2,10 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item1"
+        android:id="@+id/tema"
+        android:title="Cambiar Tema" >
+        <menu >
+            <item
+                android:id="@+id/verde"
+                android:title="Verde" />
+            <item
+                android:id="@+id/azul"
+                android:title="Azul" />
+            <item
+                android:id="@+id/rojo"
+                android:title="Rojo" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/idioma"
         android:orderInCategory="100"
         android:title="@string/action_settings1"
-        app:showAsAction="never" />
+        app:showAsAction="never" >
+        <menu >
+            <item
+                android:id="@+id/ingles"
+                android:title="Ingles" />
+        </menu>
+    </item>
     <item
         android:id="@+id/item2"
         android:orderInCategory="101"

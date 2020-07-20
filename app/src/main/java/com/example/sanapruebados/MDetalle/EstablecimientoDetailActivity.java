@@ -12,6 +12,7 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 import com.example.sanapruebados.R;
+import com.example.sanapruebados.Utilidades.CambiarColor;
 
 /**
  * An activity representing a single Establecimiento detail screen. This
@@ -24,6 +25,7 @@ public class EstablecimientoDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_establecimiento_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
