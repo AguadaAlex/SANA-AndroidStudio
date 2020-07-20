@@ -1,12 +1,22 @@
 package com.example.sanapruebados.MDetalle;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
+
+import com.example.sanapruebados.MainActivity;
+import com.example.sanapruebados.MapsMomentos;
+import com.example.sanapruebados.miInicio;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sanapruebados.R;
@@ -32,6 +42,8 @@ public class MomentoDetailFragment extends Fragment {
     private DummyContent.DummyItem mItem;
     private Momento momento;
     private TextView estado;
+    private Button botonmapa;
+    private ImageView imagen;
  /*   private ImageView imagen;*/
 
     /**
@@ -69,7 +81,24 @@ public class MomentoDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         /*if (mItem != null) {*/
-        ((TextView) rootView.findViewById(R.id.TVDirecM)).setText(momento.getDireccion());
+
+
+        botonmapa=(Button)rootView.findViewById(R.id.BTMapsM);
+        botonmapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MapsMomentos.class);
+                Bundle bun=new Bundle();
+                bun.putSerializable("objeto",momento);
+                intent.putExtras(bun);
+                startActivity(intent);
+            }
+        });
+        byte[] imageMon=momento.getImage();
+        Bitmap bitmap= BitmapFactory.decodeByteArray(imageMon,0,imageMon.length);
+        //holder.imagen.setImageBitmap(bitmap);
+        ((ImageView) rootView.findViewById(R.id.IVMoment)).setImageBitmap(bitmap);
+        ((TextView) rootView.findViewById(R.id.TVDirecM)).setText("Dirección: "+momento.getDireccion());
             ((TextView) rootView.findViewById(R.id.txEsDetM)).setText(momento.getEstado());
      /*   }*/
 
