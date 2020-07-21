@@ -35,6 +35,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sanapruebados.MDetalle.MomentoListActivity;
+import com.example.sanapruebados.Utilidades.CambiarColor;
 import com.example.sanapruebados.entidades.Momento;
 import com.example.sanapruebados.entidades.Usuario;
 
@@ -69,6 +70,7 @@ public class altaMomentos extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_alta_momentos);
         daoM = new daoMomento(getApplicationContext());
         imagen = (ImageView) findViewById(R.id.IMCamara);

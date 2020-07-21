@@ -90,7 +90,6 @@ public class altaAdiccionesFragment extends Fragment {
         descripcion=(EditText)vista.findViewById(R.id.ETDescripA);
         btCambiarImagen=(Button)vista.findViewById(R.id.BTCambiarImg);
         btAgregar=(Button)vista.findViewById(R.id.BTAgregarAdic);
-        btLista=(Button)vista.findViewById(R.id.BTListaAdic);
         imageView=(ImageView)vista.findViewById(R.id.imageView2);
         btCambiarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,13 +102,6 @@ public class altaAdiccionesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 regAdiccion();
-            }
-        });
-        btLista.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getActivity(), AdiccionListActivity.class);
-                startActivity(intent);
             }
         });
         return vista;

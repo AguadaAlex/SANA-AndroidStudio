@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.sanapruebados.Utilidades.CambiarColor;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import android.view.LayoutInflater;
@@ -39,6 +41,8 @@ public class EstablecimientoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_establecimiento_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

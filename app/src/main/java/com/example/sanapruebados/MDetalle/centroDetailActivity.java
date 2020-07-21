@@ -2,6 +2,8 @@ package com.example.sanapruebados.MDetalle;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.sanapruebados.Utilidades.CambiarColor;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +26,7 @@ public class centroDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CambiarColor.preferencias(this);
         setContentView(R.layout.activity_centro_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);

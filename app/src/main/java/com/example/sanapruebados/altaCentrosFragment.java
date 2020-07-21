@@ -3,13 +3,14 @@ package com.example.sanapruebados;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Bitmap;//
+import android.graphics.BitmapFactory;//
+import android.graphics.drawable.BitmapDrawable;//
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,7 +95,7 @@ public class altaCentrosFragment extends Fragment {
         direccion = (EditText) vista.findViewById(R.id.direcCen);
         btCambiarImagen = (Button) vista.findViewById(R.id.BTCambiarImgCen);
         btAgregar = (Button) vista.findViewById(R.id.BTAgregarAdicCen);
-        btLista = (Button) vista.findViewById(R.id.BTListaAdicCen);
+
         imageView = (ImageView) vista.findViewById(R.id.imageView2Cen);
         btCambiarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,15 +110,6 @@ public class altaCentrosFragment extends Fragment {
                 regAltaCentro();
             }
         });
-        btLista.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), centroListActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         return vista;
     }
 

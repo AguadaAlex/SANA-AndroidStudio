@@ -31,6 +31,7 @@ public class daoUsuario {
         values.put(utilidades.CAMPO_APELLIDO,u.getApellido());
         values.put(utilidades.CAMPO_PASSWORD,u.getPassword());
         values.put(utilidades.CAMPO_MAIL,u.getMail());
+
         return (db.insert(utilidades.TABLA_USUARIO,null,values)>0);
 
     }else {

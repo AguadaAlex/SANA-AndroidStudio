@@ -8,104 +8,119 @@
     tools:context=".fragmentRegistrarse">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registro"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:layout_gravity="center"/>
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilUsuario"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/ETUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="@string/hintUsuario"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilNombre"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/ETNombre"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:hint="@string/hintNombre"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilApellido"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/ETApellido"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:hint="@string/hintApellido"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilContraseña"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/ETContraseña"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:hint="@string/hintContraseña"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        android:inputType="textPassword"/>
-
-</com.google.android.material.textfield.TextInputLayout>
-
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilCorreo"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/ETCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="@string/hintCorreo"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/BTRegistro"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="Registrar"
-            android:textColorHint="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Registro"
+                android:textColor="@color/colorWhite"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ETUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:hint="@string/hintUsuario"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ETNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:hint="@string/hintNombre"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ETApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:hint="@string/hintApellido"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ETContraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:hint="@string/hintContraseña"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ETCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:hint="@string/hintCorreo"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/BTRegistro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Registrar"
+                        android:textColorHint="@color/colorWhite"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 
 
 </LinearLayout>

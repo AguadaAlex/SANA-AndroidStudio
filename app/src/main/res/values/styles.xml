@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorVerdeD</item>
         <item name="colorAccent">@color/colorVerdeA</item>
         <item name="android:windowBackground">@color/colorVerdeA</item>
-        <item name="colorControlHighlight">@color/colorVerdeP</item>
+        <item name="colorControlHighlight">@color/colorVerdeA</item>
         <item name="colorButtonNormal">@color/colorVerdeD</item>
         <item name="android:textColor">#000000</item>
         <item name="android:windowAnimationStyle">@style/AnimacionEntreActividades</item>
@@ -26,7 +26,7 @@
         <item name="colorPrimaryDark">@color/colorRojoD</item>
         <item name="colorAccent">@color/colorRojoA</item>
         <item name="android:windowBackground">@color/colorRojoA</item>
-        <item name="colorControlHighlight">@color/colorRojoP</item>
+        <item name="colorControlHighlight">@color/colorRojoA</item>
         <item name="colorButtonNormal">@color/colorRojoD</item>
         <item name="colorRana1">#C68D3F</item>
         <item name="colorRana2">#A57832</item>
@@ -37,7 +37,7 @@
         <item name="colorPrimaryDark">@color/colorAzulD</item>
         <item name="colorAccent">@color/colorAzulA</item>
         <item name="android:windowBackground">@color/colorAzulA</item>
-        <item name="colorControlHighlight">@color/colorAzulP</item>
+        <item name="colorControlHighlight">@color/colorAzulA</item>
         <item name="colorButtonNormal">@color/colorAzulD</item>
         <item name="colorRana1">#3F80C6</item>
         <item name="colorRana2">#1F6FA3</item>
