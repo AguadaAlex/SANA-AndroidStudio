@@ -34,7 +34,7 @@
                 android:backgroundTint="#15F1CC"
                 android:drawableBottom="@drawable/ic_adiccion"
                 android:elegantTextHeight="false"
-                android:text="adicciones"
+                android:text="@string/adicciones"
                 android:textAlignment="gravity"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="24sp" />
@@ -47,7 +47,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:drawableTop="@drawable/ic_espacios"
                 android:elegantTextHeight="false"
-                android:text="espacios"
+                android:text="@string/espacios"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="24sp" />
 
@@ -60,7 +60,7 @@
         android:layout_height="53dp"
         android:layout_margin="23dp"
         android:background="@drawable/ovalo"
-        android:text="Momentos"
+        android:text="@string/momentos"
         app:layout_constraintEnd_toEndOf="@+id/text_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -41,6 +41,25 @@
     <string name="title_momento_list">Momentos</string>
     <string name="title_momento_detail">Momento Detail</string>
     <string name="title_activity_maps_momentos">Map</string>
+    <string name="seleccionar_imagen">Seleccionar Imagen</string>
+    <string name="guardar">Guardar</string>
+    <string name="button">Button</string>
+    <string name="salir">Salir</string>
+    <string name="adicciones">Adicciones</string>
+    <string name="establecimientos">Establecimientos</string>
+    <string name="editar_estado">Editar Estado</string>
+    <string name="guardar">Guardar</string>
+    <string name="contenido_onjeto">CONTENIDO ONJETO</string>
+    <string name="nombre">Nombre</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="agregar">Agregar</string>
+    <string name="espacios">espacios</string>
+    <string name="momentos">Momentos</string>
+    <string name="inicio">Inicio</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="registro">Registro</string>
+    <string name="direccion">DIRECCION</string>
+    <string name="mapa">Mapa</string>
 
 
 </resources>
