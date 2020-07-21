@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/altaAdiccionesFragment"
         android:name="com.example.sanapruebados.altaAdiccionesFragment"
-        android:label="fragment_alta_adicciones"
+        android:label="Alta Adicciones"
         tools:layout="@layout/fragment_alta_adicciones" />
     <fragment
         android:id="@+id/altaCentrosFragment"

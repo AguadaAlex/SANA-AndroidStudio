@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SANAPruebaDos</string>
+    <string name="app_name">SANAR</string>
     <string name="tab_text_1">Login</string>
     <string name="tab_text_2">Registrarse</string>
 
@@ -8,8 +8,8 @@
     <string name="title_activity_mi_inicio">miInicio</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">@string/app_name</string>
+    <string name="nav_header_subtitle">Software contra las Adicciones Nacional Argentino</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings1">Idioma</string>
     <string name="action_settings2">Salir</string>
