@@ -1,16 +1,26 @@
 package com.example.sanapruebados.MDetalle;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import com.example.sanapruebados.MainActivity;
 import com.example.sanapruebados.MapsMomentos;
+import com.example.sanapruebados.altaMomentos;
+import com.example.sanapruebados.daoMomento;
 import com.example.sanapruebados.miInicio;
+import com.example.sanapruebados.updateMomento;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sanapruebados.R;
 import com.example.sanapruebados.MDetalle.dummy.DummyContent;
@@ -44,6 +55,7 @@ public class MomentoDetailFragment extends Fragment {
     private TextView estado;
     private Button botonmapa;
     private ImageView imagen;
+    private daoMomento daoM;
  /*   private ImageView imagen;*/
 
     /**
@@ -78,7 +90,7 @@ public class MomentoDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.momento_detail, container, false);
-
+        imagen=(ImageView)rootView.findViewById(R.id.IVMoment);
         // Show the dummy content as text in a TextView.
         /*if (mItem != null) {*/
 
@@ -97,11 +109,59 @@ public class MomentoDetailFragment extends Fragment {
         byte[] imageMon=momento.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(imageMon,0,imageMon.length);
         //holder.imagen.setImageBitmap(bitmap);
-        ((ImageView) rootView.findViewById(R.id.IVMoment)).setImageBitmap(bitmap);
+       /* ((ImageView) rootView.findViewById(R.id.IVMoment)).setImageBitmap(bitmap);*/
+       /* MENU DE DESCARGA  EDICION Y BORRAR*/
+        imagen.setImageBitmap(bitmap);
+        imagen.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                menuABM();
+                Toast.makeText(getContext(),"aqui edicion",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
         ((TextView) rootView.findViewById(R.id.TVDirecM)).setText("Dirección: "+momento.getDireccion());
             ((TextView) rootView.findViewById(R.id.txEsDetM)).setText(momento.getEstado());
      /*   }*/
 
         return rootView;
+    }
+
+    /*MENU ALTA BAJAS Y MODIFICACIONES*/
+    private void menuABM(){
+        final CharSequence[] opciones = {"Descargar imagen", "Editar", "Borrar"};
+        final AlertDialog.Builder alertopciones = new AlertDialog.Builder(getActivity());
+        alertopciones.setTitle("Seleccione una Opción");
+        alertopciones.setItems(opciones, (new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (opciones[which].equals("Editar")) {
+                    Intent i7 = new Intent(getContext(), updateMomento.class);
+                    Bundle mom=new Bundle();
+                    mom.putSerializable("objeto",momento);
+                    i7.putExtras(mom);
+                    startActivity(i7);
+
+
+
+
+                } else {
+                    if (opciones[which].equals("Borrar")) {
+
+                        daoM=new daoMomento(getContext());
+                        daoM.deleteMomento(momento);
+                        Intent i6 = new Intent(getContext(), MomentoListActivity.class);
+                        startActivity(i6);
+
+                    } else {
+                        dialog.dismiss();
+                    }
+                }
+            }
+        }
+
+
+        ));
+        alertopciones.show();
     }
 }

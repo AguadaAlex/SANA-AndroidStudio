@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.sanapruebados.Utilidades.utilidades;
 import com.example.sanapruebados.entidades.Adiccion;
@@ -47,8 +48,20 @@ public class daoMomento {
 
 
     }
+    public void deleteMomento(Momento u){
+        String[] ident={u.getId().toString()};
+        db.delete(utilidades.TABLA_MOMENTO,utilidades.CAMPO_ID_MOMENTO+"=?",ident);
+        db.close();
+    }
+    public void updateMomento(Momento u,String parametro){
+        String[] ident={u.getId().toString()};
+        ContentValues values= new ContentValues();
+        values.put(utilidades.CAMPO_ESTADO_MOMENTO,parametro);
+        db.update(utilidades.TABLA_MOMENTO,values,utilidades.CAMPO_ID_MOMENTO+"=?",ident);
 
-    //OBTENGO LISTA CON TODOS LOS USUARIOS DE LA BD
+    }
+
+    //OBTENGO LISTA CON TODOS LOS MOMENTOS DE LA BD
     public ArrayList<Momento> listaMomentosDB(){
         ArrayList<Momento>lista=new ArrayList<Momento>();
         lista.clear();

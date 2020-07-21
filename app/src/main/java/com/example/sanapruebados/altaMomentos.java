@@ -10,27 +10,22 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.icu.util.TimeZone;
 import android.location.Address;
-import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
-import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +34,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.sanapruebados.entidades.Adiccion;
+import com.example.sanapruebados.MDetalle.MomentoListActivity;
 import com.example.sanapruebados.entidades.Momento;
 import com.example.sanapruebados.entidades.Usuario;
 
@@ -49,8 +44,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import java.security.Permission;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -58,9 +51,6 @@ import java.util.Locale;
 
 
 import static android.app.Activity.RESULT_OK;
-
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.Manifest.permission_group.CAMERA;
 
 public class altaMomentos extends AppCompatActivity {
     private Uri photoURI;
@@ -193,6 +183,8 @@ public class altaMomentos extends AppCompatActivity {
             daoM.insertMomento(ad);
             estado.setText("");
             imagen.setImageResource(R.mipmap.ic_launcher);
+            Intent i5 = new Intent(altaMomentos.this, MomentoListActivity.class);
+            startActivity(i5);
         } catch (Exception e) {
             e.printStackTrace();
         }
